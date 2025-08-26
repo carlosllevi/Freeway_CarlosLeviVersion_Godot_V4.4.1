@@ -1,7 +1,7 @@
 extends Area2D
 signal pontua
 # variáveis
-@export var speed: float = 100.0 #export serv para fazer aparecer no painel inspetor
+@export var speed: float = 200.0 #export serv para fazer aparecer no painel inspetor
 var screen_size: Vector2
 var posicao_inicial: Vector2 = Vector2(640, 690) 
 
