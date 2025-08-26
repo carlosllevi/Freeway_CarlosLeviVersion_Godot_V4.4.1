@@ -22,6 +22,9 @@ position = Vector2(640, 64)
 
 [node name="Player" parent="." instance=ExtResource("1_74bqr")]
 
+[node name="Player2" parent="." instance=ExtResource("1_74bqr")]
+player_id = 2
+
 [node name="TimerCarrosRapidos" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
@@ -37,11 +40,14 @@ anchor_right = 0.5
 offset_left = -20.0
 offset_top = 51.0
 offset_right = 20.0
-offset_bottom = 74.0
+offset_bottom = 82.0
 grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_btbr3")
+theme_override_font_sizes/font_size = 30
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+autostart = true
 
 [node name="LabelGameOver" type="Label" parent="."]
 anchors_preset = 8

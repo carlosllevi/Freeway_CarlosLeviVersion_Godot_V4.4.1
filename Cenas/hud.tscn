@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfbk3x6s40isn"]
+[gd_scene load_steps=3 format=3 uid="uid://cfbk3x6s40isn"]
 
 [ext_resource type="Script" uid="uid://bjksrw28oidl2" path="res://Cenas/hud.gd" id="1_1pfdj"]
 [ext_resource type="FontFile" uid="uid://xw03lnp7m3fa" path="res://Material Freeway/Minecraft.ttf" id="2_1pfdj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pfdj"]
-bg_color = Color(0.831373, 0.568627, 0.2, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1pfdj")
@@ -59,7 +56,6 @@ grow_vertical = 0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_1pfdj")
 theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_1pfdj")
 text = "Reiniciar"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
