@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ignsmrrps7"]
+
+[ext_resource type="Texture2D" uid="uid://bwj5t17kv0ymr" path="res://Material Freeway/wallpaperfreewayinicio.png" id="1_0ujk8"]
+[ext_resource type="Script" uid="uid://b7krunase3xk5" path="res://Cenas/inicio.gd" id="1_yvfjp"]
+[ext_resource type="FontFile" uid="uid://xw03lnp7m3fa" path="res://Material Freeway/Minecraft.ttf" id="3_nvhof"]
+[ext_resource type="AudioStream" uid="uid://bh7ute2g78psa" path="res://Material Freeway/sons/tema.wav" id="4_nvhof"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_yvfjp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0ujk8")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 97.0
+offset_right = 20.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_nvhof")
+theme_override_font_sizes/font_size = 60
+text = "Bem-Vindo ao Freeway
+ Versão Levi"
+horizontal_alignment = 1
+
+[node name="AudioTema" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nvhof")
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -64.0
+offset_right = 139.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nvhof")
+theme_override_font_sizes/font_size = 120
+text = "Play!"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2rfav14nf7vj"]
+
+[ext_resource type="PackedScene" uid="uid://b71ab7yypc0lt" path="res://Cenas/player.tscn" id="1_74bqr"]
+[ext_resource type="Texture2D" uid="uid://dmbmh07u7ntoi" path="res://Material Freeway/wallpaperfreeway.png" id="1_ruij7"]
+[ext_resource type="Script" uid="uid://gkerrq2qkwou" path="res://Cenas/main.gd" id="1_x6di6"]
+[ext_resource type="PackedScene" uid="uid://cyq31oyq7l1c8" path="res://Cenas/linha_chegada.tscn" id="2_ruij7"]
+[ext_resource type="PackedScene" uid="uid://cfbk3x6s40isn" path="res://Cenas/hud.tscn" id="4_lb8y5"]
+[ext_resource type="AudioStream" uid="uid://bh7ute2g78psa" path="res://Material Freeway/sons/tema.wav" id="4_n00j1"]
+[ext_resource type="FontFile" uid="uid://xw03lnp7m3fa" path="res://Material Freeway/Minecraft.ttf" id="5_btbr3"]
+[ext_resource type="AudioStream" uid="uid://cxy8h2s13dcah" path="res://Material Freeway/sons/ponto.wav" id="5_x6di6"]
+[ext_resource type="AudioStream" uid="uid://b2whc5s8ui6vh" path="res://Material Freeway/sons/ganhou.wav" id="6_btbr3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_x6di6")
+
+[node name="Pista" type="Sprite2D" parent="."]
+texture = ExtResource("1_ruij7")
+centered = false
+
+[node name="LinhaChegada" parent="." instance=ExtResource("2_ruij7")]
+position = Vector2(640, 64)
+
+[node name="Player" parent="." instance=ExtResource("1_74bqr")]
+
+[node name="TimerCarrosRapidos" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="TimerCarrosLentos" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="LabelTimer" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 51.0
+offset_right = 20.0
+offset_bottom = 74.0
+grow_horizontal = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="LabelGameOver" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -15.5
+offset_right = 89.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_btbr3")
+theme_override_font_sizes/font_size = 30
+
+[node name="AudioTema" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_n00j1")
+
+[node name="AudioPonto" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_x6di6")
+
+[node name="AudioVitoria" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_btbr3")
+
+[node name="HUD" parent="." instance=ExtResource("4_lb8y5")]
+
+[connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
+[connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
+[connection signal="timeout" from="TimerCarrosLentos" to="." method="_on_timer_carros_lentos_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]
