@@ -1,43 +1,69 @@
-[gd_scene load_steps=11 format=3 uid="uid://b71ab7yypc0lt"]
+[gd_scene load_steps=15 format=3 uid="uid://b71ab7yypc0lt"]
 
 [ext_resource type="Script" uid="uid://drrpf1aspmpmc" path="res://Cenas/player.gd" id="1_e2nbm"]
-[ext_resource type="Texture2D" uid="uid://17nx8j2s20qt" path="res://Material Freeway/galinha/baixo/sprite_0.png" id="2_ybr15"]
-[ext_resource type="Texture2D" uid="uid://5k81dtj731hc" path="res://Material Freeway/galinha/baixo/sprite_1.png" id="3_4q8k4"]
-[ext_resource type="Texture2D" uid="uid://drsgn21cjguug" path="res://Material Freeway/galinha/baixo/sprite_2.png" id="4_2enhl"]
-[ext_resource type="Texture2D" uid="uid://bkcukribo7vr2" path="res://Material Freeway/galinha/cima/sprite_0.png" id="5_ruciq"]
-[ext_resource type="Texture2D" uid="uid://cponkhcqtlft5" path="res://Material Freeway/galinha/cima/sprite_1.png" id="6_yk6xx"]
-[ext_resource type="Texture2D" uid="uid://cv6gt1qwd3scj" path="res://Material Freeway/galinha/cima/sprite_2.png" id="7_bb2x8"]
+[ext_resource type="Texture2D" uid="uid://cpobnvma6xf1h" path="res://Material Freeway/homenzinho/baixo/sprite_0.png" id="2_e2nbm"]
+[ext_resource type="Texture2D" uid="uid://dnfp6ivwwtdj" path="res://Material Freeway/homenzinho/baixo/sprite_1.png" id="3_ybr15"]
+[ext_resource type="Texture2D" uid="uid://bdp5dm0f6hguv" path="res://Material Freeway/homenzinho/baixo/sprite_2.png" id="4_4q8k4"]
+[ext_resource type="Texture2D" uid="uid://depg010yy18r" path="res://Material Freeway/homenzinho/cima/sprite_0.png" id="5_e2nbm"]
+[ext_resource type="Texture2D" uid="uid://mpwpafux3ct4" path="res://Material Freeway/homenzinho/cima/sprite_1.png" id="6_ybr15"]
+[ext_resource type="Texture2D" uid="uid://c0lx8u7rkpan" path="res://Material Freeway/homenzinho/cima/sprite_2.png" id="7_4q8k4"]
+[ext_resource type="Texture2D" uid="uid://d2kpqbnwy6ds3" path="res://Material Freeway/homenzinho/esquerda/sprite_0.png" id="8_4q8k4"]
 [ext_resource type="AudioStream" uid="uid://bmhf3xmgjq66" path="res://Material Freeway/sons/colide.wav" id="8_60xba"]
+[ext_resource type="Texture2D" uid="uid://bf4rmhtoor6a3" path="res://Material Freeway/homenzinho/direita/sprite_0.png" id="8_ruciq"]
+[ext_resource type="Texture2D" uid="uid://bbsqpsojr70b2" path="res://Material Freeway/homenzinho/esquerda/sprite_1.png" id="9_2enhl"]
+[ext_resource type="Texture2D" uid="uid://cridghnvd04u4" path="res://Material Freeway/homenzinho/direita/sprite_1.png" id="9_yk6xx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2c22q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ybr15")
+"texture": ExtResource("2_e2nbm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_4q8k4")
+"texture": ExtResource("3_ybr15")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2enhl")
+"texture": ExtResource("4_4q8k4")
 }],
 "loop": true,
 "name": &"baixo",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ruciq")
+"texture": ExtResource("5_e2nbm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_yk6xx")
+"texture": ExtResource("6_ybr15")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_bb2x8")
+"texture": ExtResource("7_4q8k4")
 }],
 "loop": true,
 "name": &"cima",
-"speed": 8.0
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ruciq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yk6xx")
+}],
+"loop": true,
+"name": &"direita",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4q8k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2enhl")
+}],
+"loop": true,
+"name": &"esquerda",
+"speed": 6.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlk8b"]
@@ -49,7 +75,7 @@ script = ExtResource("1_e2nbm")
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2c22q")
-animation = &"baixo"
+animation = &"direita"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vlk8b")

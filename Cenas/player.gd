@@ -1,7 +1,7 @@
 extends Area2D
 signal pontua
 # variáveis
-@export var speed: float = 100.0 #export serve para fazer aparecer no painel inspetor
+var speed: float = 200.0 #export serve para fazer aparecer no painel inspetor
 @export var player_id: int = 1
 var screen_size: Vector2
 var posicao_inicial_player1: Vector2 = Vector2(450, 690) 
@@ -41,13 +41,37 @@ func _process(delta: float) -> void:
 
 	position += velocity*delta
 	position.y = clamp(position.y, 0.0, screen_size.y)
+	
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x > 0:
+			$Animacao.play("direita")
+		elif velocity.x < 0:
+			$Animacao.play("esquerda")
+		else:
+			$Animacao.stop()
+	else:
+		if velocity.y > 0:
+			$Animacao.play("baixo")
+		elif velocity.y < 0:
+			$Animacao.play("cima")
+		else:
+			$Animacao.stop()
+	
+	#if velocity.x > 0: 
+	#	$Animacao.play("direita")
+	#elif velocity.x < 0: # tem que usar o elfi para ligar os blocos de if
+	#	$Animacao.play("esquerda")
+	#else:
+	#	$Animacao.stop()
 
-	if velocity.y > 0: 
-		$Animacao.play("baixo")
-	elif velocity.y < 0: # tem que usar o elfi para ligar os blocos de if
-		$Animacao.play("cima")
-	else: 
-		$Animacao.stop()
+	#if velocity.y > 0: 
+	#	$Animacao.play("baixo")
+	#elif velocity.y < 0: # tem que usar o elfi para ligar os blocos de if
+	#	$Animacao.play("cima")
+	#else: 
+#		$Animacao.stop()
+		
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "LinhaChegada":

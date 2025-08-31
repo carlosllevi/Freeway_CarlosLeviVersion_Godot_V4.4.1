@@ -14,7 +14,7 @@ offset_left = -50.0
 offset_right = 50.0
 offset_bottom = 60.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.926299, 2.5028e-06, 1.54018e-06, 1)
+theme_override_colors/font_color = Color(0.89975, 0.667951, 0.186197, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_1pfdj")
 theme_override_font_sizes/font_size = 32
@@ -37,7 +37,6 @@ grow_vertical = 2
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_1pfdj")
 theme_override_font_sizes/font_size = 25
-text = "Parabéns, você é o vencedor !!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
